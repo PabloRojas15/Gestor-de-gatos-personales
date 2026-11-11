@@ -1,0 +1,262 @@
+:root {
+    --bg-main: #0f172a;
+    --bg-card: #1e293b;
+    --bg-input: #0b1120;
+    --border-color: #334155;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-blue: #2563eb;
+    --accent-green: #10b981;
+    --accent-red: #ef4444;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    padding: env(safe-area-inset-top) 1rem env(safe-area-inset-bottom) 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .app-container {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* Header Semanal */
+  .week-header {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: var(--accent-blue);
+    padding: 0.2rem 0.5rem;
+    border-radius: 9999px;
+    margin-bottom: 0.35rem;
+  }
+  
+  .week-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .date-range {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  
+  /* Tarjetas */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1rem;
+  }
+  
+  .card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Grilla de Resumen */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  
+  .summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  
+  .summary-item label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  
+  .summary-item.full-width {
+    grid-column: span 2;
+  }
+  
+  .summary-item.highlight .balance-display {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--accent-green);
+    padding: 0.5rem 0;
+  }
+  
+  .helper-text {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+  
+  /* Inputs de moneda */
+  .input-currency {
+    display: flex;
+    align-items: center;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .input-currency span {
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  
+  .input-currency input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    padding: 0.65rem 0.35rem;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  /* Formulario */
+  .form-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .form-row input[type="text"] {
+    flex: 2;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 0.65rem 0.75rem;
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+  }
+  
+  .compact {
+    flex: 1;
+  }
+  
+  .error-msg {
+    color: var(--accent-red);
+    font-size: 0.8rem;
+    min-height: 1.2rem;
+    margin-top: 0.35rem;
+  }
+  
+  /* Botones */
+  .btn {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background: var(--accent-blue);
+    color: #fff;
+  }
+  
+  .btn-primary:active {
+    filter: brightness(0.9);
+  }
+  
+  /* Lista de gastos */
+  .list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .total-spent {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  
+  .expense-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    padding: 0.65rem 0.75rem;
+    border-radius: 0.5rem;
+  }
+  
+  .expense-item .concept {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  
+  .expense-item .amount {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--accent-red);
+    margin-right: 0.75rem;
+  }
+  
+  .btn-delete {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  /* Ancho específico para la casilla del día */
+.input-day {
+    flex: 0 0 65px;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 0.65rem 0.5rem;
+    color: #fff;
+    font-size: 0.95rem;
+    text-align: center;
+    outline: none;
+  }
+  
+  /* Etiqueta del día en la lista de gastos */
+  .day-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    background: #334155;
+    color: #94a3b8;
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.25rem;
+    margin-right: 0.5rem;
+  }

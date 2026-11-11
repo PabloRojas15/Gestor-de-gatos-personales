@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Control de Gastos Semanales</title>
+
+  <!-- PWA & iOS Safari Settings -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Gastos">
+  <link rel="money" href="icon-192.png">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Encabezado semanal dinámico -->
+    <header class="week-header">
+      <span class="badge">Período actual</span>
+      <h1 id="weekDisplay">Semana --</h1>
+      <p id="dateRange" class="date-range">-- a --</p>
+    </header>
+
+    <!-- Resumen de saldos fijos y dinámicos -->
+    <section class="card summary-grid">
+      <div class="summary-item">
+        <label for="weeklyBudget">Dinero disponible (Semana)</label>
+        <div class="input-currency">
+          <span>$</span>
+          <input type="number" id="weeklyBudget" placeholder="0.00" step="0.50" min="0">
+        </div>
+      </div>
+
+      <div class="summary-item highlight">
+        <label>Disponible al día de hoy</label>
+        <div class="balance-display" id="currentBalance">$0.00</div>
+      </div>
+
+      <div class="summary-item full-width">
+        <label for="serviceFunds">Fondos de servicios (Fijo semanal)</label>
+        <div class="input-currency">
+          <span>$</span>
+          <input type="number" id="serviceFunds" placeholder="0.00" step="0.50" min="0">
+        </div>
+        <small class="helper-text">Se descuenta automáticamente del presupuesto inicial.</small>
+      </div>
+    </section>
+
+    <!-- Formulario para agregar gastos -->
+    <section class="card">
+        <h2>Registrar nuevo gasto</h2>
+        <div class="form-row">
+          <!-- Campo para el día (mes y año son automáticos) -->
+          <input type="number" id="expenseDay" class="input-day" placeholder="Día" min="1" max="31">
+          <input type="text" id="expenseConcept" placeholder="Concepto (ej. Despensa)">
+          <div class="input-currency compact">
+            <span>$</span>
+            <input type="number" id="expenseAmount" placeholder="0.00" step="0.50" min="0">
+          </div>
+        </div>
+        <p id="errorMsg" class="error-msg"></p>
+        <button id="addExpenseBtn" class="btn btn-primary">Confirmar gasto</button>
+      </section>
+
+    <!-- Lista de gastos registrados -->
+    <section class="card">
+      <div class="list-header">
+        <h2>Gastos de la semana</h2>
+        <span id="totalSpent" class="total-spent">Total: $0.00</span>
+      </div>
+      <ul id="expenseList" class="expense-list">
+        <!-- Elementos generados dinámicamente -->
+      </ul>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
